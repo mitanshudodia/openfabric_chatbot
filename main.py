@@ -21,11 +21,13 @@ def config(configuration: ConfigClass):
 ############################################################
 def execute(request: SimpleText, ray: OpenfabricExecutionRay) -> SimpleText:
     output = []
+    #Knowledge of chatbot from where it can get context and give answers
     with open('knowledge','r') as file:
         knowledge = file.read()
-
-    instruction = f'Instruction: given a dialog context, you need to response Scientifically'
-
+    
+    #instruction for chat bot
+    instruction = f'Instruction: given a dialog context, you need to response Scientifically'   
+     
     for text in request.text:
         response = answer(instruction, knowledge, [text])
         print(response)
