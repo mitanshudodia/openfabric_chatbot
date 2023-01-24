@@ -1,9 +1,12 @@
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
+#Importing the model and tokenizer
 tokenizer = AutoTokenizer.from_pretrained("microsoft/GODEL-v1_1-base-seq2seq")
 model = AutoModelForSeq2SeqLM.from_pretrained("microsoft/GODEL-v1_1-base-seq2seq")
 
+
+#Making the function which gives the output.
 def answer(instruction, knowledge, dialog):
     if knowledge != '':
         knowledge = '[KNOWLEDGE] ' + knowledge
